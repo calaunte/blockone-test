@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+
+<body>
+    <section class="section">
+        <div class="container" style="margin-top: 40px;">
+            <h2 class="title center">Block.one Web Application Developer Test</h2>
+            <p class="center" style="margin-top: 20px;"><span style="font-weight: bold;">Directions: </span>Click
+                the load button to
+                display the latest 10 blocks on the eos blockchain. Click a block entry to view the raw
+                content for each block.</p>
+
+            <form class="center" method="post">
+                <button class="btn btn-primary" style="margin-top: 50px;" id="loadBtn" type="submit">LOAD</button>
+            </form>
+
+            <div class="container" style="margin-top: 30px;">
+                <ul class="collapsible expandable">
+                    {{#each block}}
+                    <li>
+                        <div class="collapsible-header">
+                            <ul>
+                                <li><span>ID: </span>{{blockInfo.id}}</li>
+                                <li><span>Timestamp: </span>{{blockInfo.timestamp}}</li>
+                                <li><span>Count: </span>{{count}}</li>
+                            </ul>
+                        </div>
+                        <div class="collapsible-body" style="word-break: break-all;">
+
+                            {{toJSON blockInfo}}
+
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </section>
+    <script src="javascript/script.js"></script>
+</body>
+
+</html>
